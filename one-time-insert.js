@@ -2,7 +2,7 @@ let script = document.createElement('script');
 script.src = "https://code.jquery.com/jquery-3.4.1.min.js";
 document.querySelector('head').appendChild(script);
 $(document).ready(function () {
-  $('head').append('<link rel="stylesheet" type="text/css" href="https://github.com/SynrgStudio/pf2easy-spell-cards/blob/main/styling.css">')
+  $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/SynrgStudio/pf2easy-spell-cards@main/styling.css">')
   $("main > script").remove();
   document.title = document.title + " - Cards";
   $("body").addClass('cards');
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
   let jsonapi;
   let httpRequest = new XMLHttpRequest();
-  httpRequest.open("GET", "https://raw.githubusercontent.com/arthurvanpassel/pf2easy-spell-cards/main/pf2-api-spells-adapted-name%20and-desc.json", true);
+  httpRequest.open("GET", "https://raw.githubusercontent.com/SynrgStudio/pf2easy-spell-cards/refs/heads/main/pf2-api-spells-adapted-name%20and-desc.json", true);
   httpRequest.send();
   httpRequest.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
