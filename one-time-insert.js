@@ -73,7 +73,7 @@ $(document).ready(function () {
   $("article.result").each((key, element) => {
     let actions = `
       <div class="actions">
-        <div class="slider-wrapper"><input type="range" min="0" max="4" value="2" class="slider" id="size"><label for="size">Text size</label></div>
+        <div class="slider-wrapper"><input type="range" min="0" max="4" value="0" class="slider" id="size"><label for="size">Text size</label></div>
         <div class="source-wrapper"><input type="checkbox" class="hideSourceInput" name="hideSourceInput" id="hideSourceInput-${key}"><label for="hideSourceInput-${key}">Hide Source</label></div>
         <div class="aon-wrapper"><input type="checkbox" class="showAon" name="showAon" id="showAon-${key}"><label for="showAon-${key}">Show AoN description</label></div>
         <div class="split-wrapper"><button class="split-left">&vartriangleleft;</button><button class="split-right">&vartriangleright;</button><label for="split">Split card</label></div>
