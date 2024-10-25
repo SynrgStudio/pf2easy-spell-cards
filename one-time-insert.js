@@ -54,7 +54,7 @@ $(document).ready(function () {
 
   let jsonapi;
   let httpRequest = new XMLHttpRequest();
-  httpRequest.open("GET", "https://raw.githubusercontent.com/SynrgStudio/pf2easy-spell-cards/refs/heads/main/pf2-api-spells-adapted-name%20and-desc.json", true);
+  httpRequest.open("GET", "https://cdn.jsdelivr.net/gh/SynrgStudio/pf2easy-spell-cards@latest/pf2-api-spells-adapted-name%20and-desc.json", true);
   httpRequest.send();
   httpRequest.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
