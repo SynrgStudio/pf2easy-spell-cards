@@ -168,7 +168,7 @@ body.cards .big .parte2 section>p,
 body.cards .big .parte2 section li,
 body.cards .big:after,
 body.cards .big:before {
-	font-size: 10px;
+	font-size: 9px;
 }
 
 body.cards .bigger .parte2 section>p,
@@ -182,14 +182,14 @@ body.cards .tinier .parte2 section>p,
 body.cards .tinier .parte2 section li,
 body.cards .tinier:after,
 body.cards .tinier:before {
-	font-size: 13px;
+	font-size: 9px;
 }
 
 body.cards .tiny .parte2 section>p,
 body.cards .tiny .parte2 section li,
 body.cards .tiny:after,
 body.cards .tiny:before {
-	font-size: 12px;
+	font-size: 9px;
 }
 
 body.cards .result.continue:after,
