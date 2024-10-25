@@ -83,7 +83,7 @@ $(document).ready(function () {
 
   $("body").on("click", "article.result", function (e) {
     if ($(e.target).hasClass('slider')) {
-      let sizes = ['bigger', 'big', '', 'tiny', 'tinier']
+      let sizes = ['bigger', 'big', 'normal', 'tiny', '']
       $(this).removeClass(sizes[$(this).data('size')]);
       $(this).addClass(sizes[$(e.target).val()])
       if ($(this).hasClass('continue')) {
