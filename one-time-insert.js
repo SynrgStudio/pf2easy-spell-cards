@@ -123,22 +123,25 @@ $(document).ready(function () {
   });
 
   function showAon(value, article) {
-    // Cambiar el título según el estado de 'Show AoN description'
     let titleElement = $(article).find("h1")[0];
+    let descriptionElement = $(article).find(".parte2")[0];
+
     if (value) {
-        titleElement.innerText = $(article).data('aon_title');  // Muestra el título del JSON
-        $(article).find(".parte2")[0].innerHTML = $(article).data('aon_description');  // Muestra la descripción del JSON
+        // Muestra el título y la descripción del JSON
+        titleElement.innerText = $(article).data('aon_title');
+        descriptionElement.innerHTML = $(article).data('aon_description');
     } else {
-        titleElement.innerText = $(article).data('old_title');  // Restaura el título original
-        $(article).find(".parte2")[0].innerHTML = $(article).data('old_description');  // Restaura la descripción original
+        // Restaura el título y la descripción originales
+        titleElement.innerText = $(article).data('old_title');
+        descriptionElement.innerHTML = $(article).data('old_description');
     }
 
-    // Mantiene la funcionalidad original de dividir la tarjeta en caso de ser necesario
     if ($(article).hasClass('continue')) {
         $(article).removeClass("continue");
         $(article).next().remove();
     }
   }
+
 
 
   function hideSource(article, value) {
