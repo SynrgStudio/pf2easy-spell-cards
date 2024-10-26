@@ -73,12 +73,31 @@ $(document).ready(function () {
   $("article.result").each((key, element) => {
     let actions = `
       <div class="actions">
-        <div class="slider-wrapper"><input type="range" min="0" max="4" value="0" class="slider" id="size"><label for="size">Text asdsize</label></div>
-        <div class="source-wrapper"><input type="checkbox" class="hideSourceInput" name="hideSourceInput" id="hideSourceInput-${key}"><label for="hideSourceInput-${key}">Hide Source</label></div>
-        <div class="aon-wrapper"><input type="checkbox" class="showAon" name="showAon" id="showAon-${key}"><label for="showAon-${key}">Show AoN description</label></div>
-        <div class="split-wrapper"><button class="split-left">&vartriangleleft;</button><button class="split-right">&vartriangleright;</button><label for="split">Split card</label></div>
+        <div class="slider-wrapper">
+          <input type="range" min="0" max="4" value="0" class="slider" id="size">
+          <label for="size">Text size</label>
+        </div>
+        <div class="source-wrapper">
+          <input type="checkbox" class="hideSourceInput" name="hideSourceInput" id="hideSourceInput-${key}">
+          <label for="hideSourceInput-${key}">Hide Source</label>
+        </div>
+        <div class="aon-wrapper">
+          <input type="checkbox" class="showAon" name="showAon" id="showAon-${key}">
+          <label for="showAon-${key}">Show AoN description</label>
+        </div>
+        <div class="split-wrapper">
+          <button class="split-left">&vartriangleleft;</button>
+          <button class="split-right">&vartriangleright;</button>
+          <label for="split">Split card</label>
+        </div>
       </div>`;
+    
     $(element).prepend($(actions));
+    
+    // Conectar el checkbox al cambio de título y descripción
+    $(`#showAon-${key}`).on("change", function () {
+        showAon(this.checked, element);
+    });
   });
 
   $("body").on("click", "article.result", function (e) {
@@ -104,16 +123,23 @@ $(document).ready(function () {
   });
 
   function showAon(value, article) {
-    if ($(article).hasClass('continue')) {
-      $(article).removeClass("continue");
-      $(article).next().remove();
-    }
+    // Cambiar el título según el estado de 'Show AoN description'
+    let titleElement = $(article).find("h1")[0];
     if (value) {
-      $(article).find(".parte2")[0].innerHTML = $(article).data('aon_description');
+        titleElement.innerText = $(article).data('aon_title');  // Muestra el título del JSON
+        $(article).find(".parte2")[0].innerHTML = $(article).data('aon_description');  // Muestra la descripción del JSON
     } else {
-      $(article).find(".parte2")[0].innerHTML = $(article).data('old_description');
+        titleElement.innerText = $(article).data('old_title');  // Restaura el título original
+        $(article).find(".parte2")[0].innerHTML = $(article).data('old_description');  // Restaura la descripción original
+    }
+
+    // Mantiene la funcionalidad original de dividir la tarjeta en caso de ser necesario
+    if ($(article).hasClass('continue')) {
+        $(article).removeClass("continue");
+        $(article).next().remove();
     }
   }
+
 
   function hideSource(article, value) {
     if (!$(article).data('wrappedSource')) {
